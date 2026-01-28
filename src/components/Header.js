@@ -1,22 +1,53 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="w-full border-b border-white/10">
-      <div className="max-w-7x1 mx-auto flex items-center justify-between py-6 px-6 md:px-12">
-        {/* Logo / Nome*/}
-        <Link href="/" className="text-lg font-semibold tracking-wide">
+    <header className="fixed top-0 z-50 w-full bg-black border-b border-white/10">
+      <div className="flex items-center justify-between px-6 py-4 md:px-12">
+
+        <Link href="/" className="text-white font-semibold">
           Bruno Designer
         </Link>
 
-        {/* Navegação */}
-        <nav className="flex gap-8 text-sm uppercase tracking-widest">
-          <Link href="/sobre" className="hover:text-gray-300 transition">Sobre</Link>
-          <Link href="/portfolio" className="hover:text-gray-300 transition">Portfolio</Link>
-          <Link href="/contato" className="hover:text-gray-300 transition">Contato</Link>
-
+        {/* DESKTOP MENU */}
+        <nav className="hidden md:flex mr-10 gap-8 text-sm text-white/70">
+          <Link href="/">Home</Link>
+          <Link href="/portfolio">Portfólio</Link>
+          <Link href="/sobre">Sobre</Link>
+          <Link href="/contato">Contato</Link>
         </nav>
+
+        {/* MOBILE BUTTON */}
+        <button
+          className="md:hidden mr-10  text-white"
+          onClick={() => setOpen(!open)}
+        >
+          ☰
+        </button>
       </div>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="md:hidden bg-black border-t border-white/10 px-10 py-6 space-y-4">
+          <Link onClick={() => setOpen(false)} href="/" className="block">
+            Home
+          </Link>
+          <Link onClick={() => setOpen(false)} href="/portfolio" className="block">
+            Portfólio
+          </Link>
+          <Link onClick={() => setOpen(false)} href="/sobre" className="block">
+            Sobre
+          </Link>
+          <Link onClick={() => setOpen(false)} href="/contato" className="block">
+            Contato
+          </Link>
+        </div>
+      )}
     </header>
-  )
+  );
 }

@@ -1,52 +1,27 @@
-const projects = [
+export const projects = [
   {
-    id: "1",
+    id: 1,
     title: "Projeto 1",
-    category: "Design Gráfico",
-    description: "Projeto 1 descrição detalhada aqui.",
-    services: [
-      "Design Responsivo",
-      "Desenvolvimento Front-end",
-      "Otimização SEO",
-    ],
+    description: "Descrição detalhada do Projeto 1.",
     image: "/portfolio/projeto1.jpg",
+    services: ["Design Responsivo", "Front-end"],
+    featured: true,
   },
   {
-    id: "2",
+    id: 2,
     title: "Projeto 2",
-    category: "Landing Page",
-    description: "Projeto 2 descrição detalhada aqui.",
-    services: [
-      "Design Responsivo",
-      "Desenvolvimento Front-end",
-      "Otimização SEO",
-    ],
+    description: "Descrição detalhada do Projeto 2.",
     image: "/portfolio/projeto2.jpg",
+    services: ["UI/UX", "SEO"],
+    featured: true,
   },
   {
-    id: "3",
+    id: 3,
     title: "Projeto 3",
-    category: "Identidade Visual",
-    description: "Projeto 3 descrição detalhada aqui.",
-    services: [
-      "Design Responsivo",
-      "Desenvolvimento Front-end",
-      "Otimização SEO",
-    ],
+    description: "Descrição detalhada do Projeto 3.",
     image: "/portfolio/projeto3.jpg",
-  },
-  {
-    id: "4",
-    title: "Projeto 4",
-    category: "Identidade Visual",
-    description: "Projeto 4 descrição detalhada aqui.",
-    services: [
-      "Design Responsivo",
-      "Desenvolvimento Front-end",
-      "Otimização SEO",
-    ],
-    image: "/portfolio/projeto4.jpg",
+    services: ["Landing Page"],
+    featured: true,
   },
 ];
-
 export default projects;

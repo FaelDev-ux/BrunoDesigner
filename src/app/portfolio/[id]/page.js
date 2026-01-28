@@ -1,18 +1,22 @@
 import Link from "next/link";
-import projects from "@/app/data/projects";
+import Image from "next/image";
+import { projects } from "@/app/data/projects";
 
 export default async function ProjectPage({ params }) {
   const { id } = await params;
 
   const project = projects.find(
-    (p) => p.id === id
+    (p) => p.id === Number(id)
   );
 
   if (!project) {
     return (
       <main className="min-h-screen bg-black px-6 py-24 text-white">
         <p>Projeto não encontrado.</p>
-        <Link href="/portfolio" className="underline">
+        <Link
+          href="/portfolio"
+          className="mt-6 inline-block underline"
+        >
           Voltar ao portfólio
         </Link>
       </main>
@@ -21,7 +25,9 @@ export default async function ProjectPage({ params }) {
 
   return (
     <main className="min-h-screen bg-black px-6 py-24 text-white">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-5xl">
+
+        {/* Voltar */}
         <Link
           href="/portfolio"
           className="mb-10 inline-block text-xs uppercase tracking-widest text-white/50 hover:text-white"
@@ -29,15 +35,34 @@ export default async function ProjectPage({ params }) {
           &larr; Voltar ao portfólio
         </Link>
 
+        {/* Título */}
         <h1 className="text-4xl font-light uppercase tracking-widest">
           {project.title}
         </h1>
 
-        <p className="mt-6 text-white/70 leading-relaxed">
+        {/* Categoria */}
+        <p className="mt-2 text-xs uppercase tracking-widest text-white/50">
+          {project.category}
+        </p>
+
+        {/* Imagem principal */}
+        <div className="relative mt-12 aspect-[16/9] w-full overflow-hidden border border-white/10">
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        {/* Descrição */}
+        <p className="mt-10 max-w-3xl text-white/70 leading-relaxed">
           {project.description}
         </p>
 
-        <div className="mt-10">
+        {/* Serviços */}
+        <div className="mt-12">
           <h2 className="mb-4 text-xs uppercase tracking-widest text-white/50">
             Serviços
           </h2>
@@ -54,9 +79,6 @@ export default async function ProjectPage({ params }) {
           </ul>
         </div>
 
-        <div className="mt-16 aspect-[16/9] w-full bg-neutral-900 flex items-center justify-center text-white/30 text-sm">
-          Imagem do projeto
-        </div>
       </div>
     </main>
   );
