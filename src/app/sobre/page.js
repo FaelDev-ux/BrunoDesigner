@@ -15,7 +15,7 @@ export default function Sobre() {
         <div className='grid gap-16 md:grid-cols-2'>
           {/* Text */}
           <div className=' space-y-6 text-sm leading-relaxed text-white/80'>
-          <p>Sou um profissional focado em criar soluções digitais com estética minimalista, clareza visual e posicionamento estrátegico.</p>
+          <p>Sou um profissional focado em criar soluções digitais com estética minimalista, clareza visual e posicionamento estratégico.</p>
           <p>Acredito que um bom projeto vai além do visual. Ele comunica, transmite confiança e gera valor real para quem utiliza.</p>
           <p>Cada trabalho é desenvolvido com atenção aos detalhes, alinhando design, funcionalidade e objetivos claros.</p>
           <p>Meu processo é baseado em entender o problema, criar uma solução eficiente e entregar algo que realmente faça sentido.</p>

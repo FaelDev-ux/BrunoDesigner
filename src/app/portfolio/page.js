@@ -1,7 +1,15 @@
 import Link from "next/link";
-import projects from "@/app/data/projects";
+import { createClient } from "@/lib/supabase/server";
+import PortfolioGrid from "./PortfolioGrid";
 
-export default function Portfolio() {
+export default async function PortfolioPage() {
+  const supabase = await createClient();
+  const { data: projects } = await supabase
+    .from("projects")
+    .select("id, title, slug, category, excerpt, cover_image")
+    .eq("published", true)
+    .order("created_at", { ascending: false });
+
   return (
     <main className="min-h-screen bg-black px-6 py-24 text-white">
       <div className="mb-16 max-w-5xl">
@@ -14,27 +22,7 @@ export default function Portfolio() {
         </p>
       </div>
 
-      <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <Link
-            key={project.id}
-            href={`/portfolio/${project.id}`}
-            className="group block"
-          >
-            <div className="overflow-hidden border border-white/10">
-              <div className="aspect-[4/5] bg-neutral-900" />
-              <div className="p-5">
-                <h2 className="text-sm uppercase tracking-wider">
-                  {project.title}
-                </h2>
-                <span className="mt-2 block text-xs text-white/50">
-                  {project.category}
-                </span>
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
+      <PortfolioGrid projects={projects || []} />
     </main>
   );
 }

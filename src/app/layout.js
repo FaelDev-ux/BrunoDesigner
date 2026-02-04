@@ -1,5 +1,5 @@
 import "./globals.css";
-import Header from "@/components/Header";
+import ClientLayout from "@/components/ClientLayout";
 
 export const metadata = {
   title: "Bruno Designer",
@@ -9,11 +9,8 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className="bg-black text-whhite antialiased">
-        <Header />
-        <main className="min-h-screen px-6 md:px-12">
-          {children}
-        </main>
+      <body className="bg-black text-white antialiased">
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

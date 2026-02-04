@@ -5,7 +5,7 @@ export const projects = [
     description: "Descrição detalhada do Projeto 1.",
     image: "/portfolio/projeto1.jpg",
     services: ["Design Responsivo", "Front-end"],
-    featured: true,
+    feature: true,
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const projects = [
     description: "Descrição detalhada do Projeto 2.",
     image: "/portfolio/projeto2.jpg",
     services: ["UI/UX", "SEO"],
-    featured: true,
+    feature: true,
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const projects = [
     description: "Descrição detalhada do Projeto 3.",
     image: "/portfolio/projeto3.jpg",
     services: ["Landing Page"],
-    featured: true,
+    feature: true,
   },
 ];
 export default projects;

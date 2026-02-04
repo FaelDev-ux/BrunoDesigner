@@ -16,7 +16,7 @@ export default function Contato() {
           {/* Texto */}
           <div className="space-y-6 text-sm leading-relaxed text-white/80">
             <p> Se você busca um design profissional, claro e alinhado com sua identidade visual, estou disponível para conversar.</p>
-            <p> Trabalho com projetos institucionais e soluções personalizadas, sempre focando em credibilidadde do usuário.</p>
+            <p> Trabalho com projetos institucionais e soluções personalizadas, sempre focando em credibilidade do usuário.</p>
             <p> Utilize um dos canais para iniciar a conversa.</p>
 
             {/* Contatos */}

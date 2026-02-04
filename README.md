@@ -1,8 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Bruno Designer — Site institucional e portfólio
+
+Next.js (App Router), React, Tailwind CSS, Supabase, Framer Motion.
+
+## Configuração
+
+### 1. Variáveis de ambiente
+
+Copie `.env.local.example` para `.env.local` e preencha com as credenciais do Supabase (Dashboard do projeto → Settings → API):
+
+- `NEXT_PUBLIC_SUPABASE_URL` — URL do projeto
+- `NEXT_PUBLIC_SUPABASE_ANON_KEY` — chave anon (pública)
+
+### 2. Supabase: tabela e Storage
+
+1. No [Supabase](https://supabase.com/dashboard), crie um projeto.
+2. No **SQL Editor**, rode o conteúdo de `supabase/schema.sql` para criar a tabela `projects` e políticas RLS.
+3. Em **Storage**, crie um bucket chamado `projects`, marque como **Public**.
+4. Em **Authentication → Users**, crie um usuário (email + senha) para acessar o admin.
+
+### 3. Área admin (protegida por senha)
+
+- **URL:** `/admin/login` (não aparece em nenhum menu público).
+- Acesso apenas com o email e senha do usuário criado no Supabase Auth.
+- Rotas: `/admin/dashboard`, `/admin/projects`, `/admin/projects/new`, `/admin/projects/edit/[id]`.
+- Funcionalidades: criar, editar, excluir e publicar/ocultar projetos; upload de imagens no bucket `projects`.
 
 ## Getting Started
 
-First, run the development server:
+Primeiro, rode o servidor de desenvolvimento:
 
 ```bash
 npm run dev
@@ -14,11 +39,7 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Abra [http://localhost:3000](http://localhost:3000). Para acessar o admin, use [http://localhost:3000/admin/login](http://localhost:3000/admin/login) (email e senha do usuário Supabase).
 
 ## Learn More
 
